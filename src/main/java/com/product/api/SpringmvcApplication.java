@@ -15,20 +15,15 @@ import com.product.api.repository.ProductRepository;
  */
 @SpringBootApplication
 public class SpringmvcApplication {
-	private ProductRepository productRepository;
-
-    @Autowired
-    public void setProductRepository(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringmvcApplication.class, args);
 	}
 
 	@Bean
-	CommandLineRunner dataBaseLoader() {
-		return (String... args) -> {
+	CommandLineRunner dataBaseLoader(ProductRepository repo) {
+		return args -> {
 
 	        Product product1 = new Product();
 	        product1.setName("SAMSUNG GALAXY");
@@ -37,7 +32,7 @@ public class SpringmvcApplication {
 	        product1.setCategory("SAMSUNG");
 	        product1.setPrice(18000.00);
 
-	        productRepository.save(product1);
+	        repo.save(product1);
 
 	        Product product2 = new Product();
 	        product2.setName("APPLE");
@@ -46,7 +41,7 @@ public class SpringmvcApplication {
 	        product2.setCategory("IPHONE");
 	        product2.setPrice(60490.00);
 
-	        productRepository.save(product2);
+	        repo.save(product2);
 		};
 	}
 
