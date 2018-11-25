@@ -1,10 +1,11 @@
-package com.example.springmvc.boot;
+package com.product.api.boot;
 
-import com.example.springmvc.model.Product;
-import com.example.springmvc.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import com.product.api.model.Product;
+import com.product.api.repository.ProductRepository;
 
 @Component
 public class DataLoader implements CommandLineRunner {

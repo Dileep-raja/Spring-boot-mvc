@@ -1,4 +1,4 @@
-package com.example.springmvc.model;
+package com.product.api.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.GenericGenerators;

@@ -1,8 +1,9 @@
-package com.example.springmvc.repository;
+package com.product.api.repository;
 
-import com.example.springmvc.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.product.api.model.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, String> {

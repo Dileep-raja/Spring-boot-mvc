@@ -1,13 +1,14 @@
-package com.example.springmvc.controller;
+package com.product.api.controller;
 
-import com.example.springmvc.model.Product;
-import com.example.springmvc.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.product.api.model.Product;
+import com.product.api.repository.ProductRepository;
 
 @Controller
 public class ProductController {
