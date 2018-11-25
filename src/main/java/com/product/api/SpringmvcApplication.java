@@ -10,7 +10,7 @@ import com.product.api.model.Product;
 import com.product.api.repository.ProductRepository;
 
 /**
- * @author sriman Java Group
+ * @author Dileep kumar
  *
  */
 @SpringBootApplication
