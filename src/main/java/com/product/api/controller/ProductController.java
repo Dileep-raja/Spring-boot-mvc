@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.product.api.model.Product;
 import com.product.api.repository.ProductRepository;
+
+
 
 @Controller
 public class ProductController {
@@ -31,10 +34,10 @@ public class ProductController {
         return "edit";
     }
 
-    @RequestMapping(path = "products", method = RequestMethod.POST)
+    @RequestMapping(path = "/products", method = RequestMethod.POST)
     public String saveProduct(Product product) {
         productRepository.save(product);
-        return "redirect:/";
+        return "redirect:/products";
     }
 
     @RequestMapping(path = "/products", method = RequestMethod.GET)
@@ -50,8 +53,11 @@ public class ProductController {
     }
 
     @RequestMapping(path = "/products/delete/{id}", method = RequestMethod.GET)
-    public String deleteProduct(@PathVariable(name = "id") String id) {
+    public String deleteProduct(@PathVariable(name = "id") String id ,RedirectAttributes  attributes) {
         productRepository.delete(id);
+        attributes.addFlashAttribute("message", "record deleted successfully");
+        attributes.addFlashAttribute("alertClass", "alert-success");
+
         return "redirect:/products";
     }
 }
